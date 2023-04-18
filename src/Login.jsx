@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
-function Login(props) {
+function Login() {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
    
@@ -23,7 +23,7 @@ function Login(props) {
         </div>
 
         <div className="auth-form-container">
-        <h3>Faça seu login</h3>
+        <h3>Login</h3>
             <form className="login-form" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" />
@@ -35,7 +35,7 @@ function Login(props) {
                     <Link to={'/register'} style={{ textDecoration: 'none', color: 'inherit' }}>Não tem uma conta? <strong>CADASTRE-SE.</strong></Link>
                 </button>
                 <button>
-                    <Link to={'/register'} style={{ textDecoration: 'none', color: 'inherit' }}>Esqueceu a senha?</Link>
+                    <Link to={'/password'} style={{ textDecoration: 'none', color: 'inherit' }}>Esqueceu a senha?</Link>
                 </button>
                 
                 <button id="login" type="submit">Log in</button>

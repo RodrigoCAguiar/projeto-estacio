@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "register",
+    path: "password",
     element: <Password />
   },
 ])

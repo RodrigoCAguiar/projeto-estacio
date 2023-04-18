@@ -24,6 +24,10 @@ h1 {
     line-height: 10px;
 }
 
+.register-form{
+    padding-top: 3rem;
+}
+
 .email-form{
     padding-top: 4rem;
 }
@@ -34,7 +38,8 @@ h1 {
     height: 34px;
     align-self: center;
     border-radius: 12px;
-    font-size: 15px;
+    font-size: inherit;
+    font-weight: inherit;
     font-family : inherit;
     -webkit-box-shadow: 0px 9px 7px -3px rgba(66,88,105,1);
     -moz-box-shadow: 0px 9px 7px -3px rgba(66,88,105,1);
