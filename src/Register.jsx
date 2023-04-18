@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"
 import './Register.css'
 
-export const Register = (props) => {
+function Register(props){
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -25,7 +26,7 @@ export const Register = (props) => {
                 <h1><span className="ola">Olá,</span><br/> <span className="blue">Vamos começar!</span></h1>
                 <p>Nosso objetivo é facilitar sua vida!</p>
                 <p>Planeje, agende e acompanhe suas atividades.</p>
-                <p>Tudo na palma da sua mão!</p>
+                <p>Tudo na palma da sua mão!</p> 
                 <p>Dê seus primeiros passos, CADASTRE-SE</p>
             </div>    
 
@@ -42,7 +43,12 @@ export const Register = (props) => {
                     <input value={pass} onChange={(e) => setPass(e.target.value)} type="text" name="password" />
 
                     <button className="submit-button" type="submit">Enviar</button>
-                    <button  onClick={() => props.onFormSwitch('login')}><img src="./src/assets/voltar.png" alt="estacio-logo" /><img src="./src/assets/voltar.png" alt="estacio-logo" /></button>
+                    <button>
+                        <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <img src="./src/assets/voltar.png" alt="estacio-logo" />
+                            <img src="./src/assets/voltar.png" alt="estacio-logo" />
+                        </Link>
+                    </button>
                 </form> 
             </div>
         </div>    
@@ -50,4 +56,5 @@ export const Register = (props) => {
     )
 }
 
+export default Register;
 //

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+import { Link } from "react-router-dom"
 
-export const Login = (props) => {
+function Login(props) {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
    
@@ -30,8 +31,12 @@ export const Login = (props) => {
                 <label htmlFor="email">Senha</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="email" name="email" />
 
-                <button onClick={() => props.onFormSwitch('register')}>Não tem uma conta? <strong>CADASTRE-SE.</strong></button>
-                <button onClick={() => props.onFormSwitch('password')}>Esqueceu a senha?</button>
+                <button>
+                    <Link to={'/register'} style={{ textDecoration: 'none', color: 'inherit' }}>Não tem uma conta? <strong>CADASTRE-SE.</strong></Link>
+                </button>
+                <button>
+                    <Link to={'/register'} style={{ textDecoration: 'none', color: 'inherit' }}>Esqueceu a senha?</Link>
+                </button>
                 
                 <button id="login" type="submit">Log in</button>
             </form>
@@ -42,3 +47,5 @@ export const Login = (props) => {
     </>
     )
 }
+
+export default Login;

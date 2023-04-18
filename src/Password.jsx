@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './Password.css'
 
-export const Password = (props) => {
+function Password(props){
 
     const [email, setEmail] = useState('');
 
@@ -42,4 +42,5 @@ export const Password = (props) => {
     )
 }
 
+export default Password;
 //

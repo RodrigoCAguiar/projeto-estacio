@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import { Login } from './Login'
-import { Register } from './Register'
-import { Password } from './Password'
+import  Login from './Login'
+import Register from './Register'
+import Password from './Password'
+
+import { Outlet } from 'react-router-dom'
 
 import './App.css'
 import './Register.css'
@@ -15,13 +17,14 @@ function App() {
   }
 
   return (
-<div>  
+/*<div>  
     {
     currentForm === 'login' ? 
       <Login onFormSwitch={toggleForm}/> : 
       <Register onFormSwitch={toggleForm}/>
     }
-</div>
+</div>*/
+    <Login />
   )
 }
 
