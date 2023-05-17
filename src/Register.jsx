@@ -1,16 +1,32 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import './Register.css'
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'; 
+import { auth } from "./services/firebase";
+
 
 function Register(props){
 
     const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        createUserWithEmailAndPassword(email, password)
+        alert("Eu sou um alert!");
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        alert("Eu sou um alert!");
     }
 
     return (
@@ -40,9 +56,9 @@ function Register(props){
                     <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" id="name"/>
 
                     <label htmlFor="password">Senha</label>
-                    <input value={pass} onChange={(e) => setPass(e.target.value)} type="text" name="password" />
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" />
 
-                    <button className="submit-button" type="submit">Enviar</button>
+                    <button className="submit-button" type="submit" onClick={handleSignUp}>Enviar</button>
                     <button>
                         <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
                             <img src="./src/assets/voltar.png" alt="estacio-logo" />
@@ -57,4 +73,3 @@ function Register(props){
 }
 
 export default Register;
-//

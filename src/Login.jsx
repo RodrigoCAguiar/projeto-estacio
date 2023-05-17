@@ -1,13 +1,35 @@
-import React, { useState } from "react"
+import { useState } from "react";
 import { Link } from "react-router-dom"
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from "./services/firebase";
+import Password from "./Password";
+
 
 function Login() {
     const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
+    const [password, setPassword] = useState('')
    
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+    const handleSignIn = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(email, Password);
+        alert('success')
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
+        alert('success')
+    }
+
+    if (user) {
+        console.log(user)
     }
 
     return (
@@ -29,7 +51,7 @@ function Login() {
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" />
 
                 <label htmlFor="email">Senha</label>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="email" name="email" />
+                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="email" />
 
                 <button>
                     <Link to={'/register'} style={{ textDecoration: 'none', color: 'inherit' }}>Não tem uma conta? <strong>CADASTRE-SE.</strong></Link>
@@ -38,7 +60,7 @@ function Login() {
                     <Link to={'/password'} style={{ textDecoration: 'none', color: 'inherit' }}>Esqueceu a senha?</Link>
                 </button>
                 
-                <button id="login" type="submit">Log in</button>
+                <button id="login" type="submit" onClick={handleSignIn}>Log in</button>
             </form>
 
         </div>
