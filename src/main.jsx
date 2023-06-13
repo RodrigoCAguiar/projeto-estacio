@@ -4,6 +4,7 @@ import App from './App'
 import Login from './Login'
 import Register from './Register'
 import Password from './Password'
+import Home from "../src/pages/Home";
 
 import './index.css'
 import './Register.css'
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
   {
     path: "password",
     element: <Password />
+  },
+
+  {
+    path: "home",
+    element: <Home />
   },
 ])
 
